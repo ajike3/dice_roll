@@ -1,27 +1,29 @@
-textboxInput = document.querySelector('#number-of-dice-rolls'); 
-
-let rollsButton = document.querySelector('#roll-button');
-
-let maxRolls = document.querySelector('#max-rolls');
-
-let resultsButton = document.querySelector('#roles-results-button');
-
-let listOfResults = document.querySelector('#list-of-results');
+let textInput = document.querySelector("#name");
+let rollsButton = document.querySelector(".roll");
+let totalRolls = document.querySelector("#total");
+let allRollsButton = document.querySelector(".allRolls");
+let listRolls = document.querySelector("#listAllRolls");
 let dieRolls = [];
-let rollsArray= [];
+let totalSum = 0;
 
-function rollRandom() {
-    return Math.floor(Math.random()  * 6) +1;
-}
+rollsButton.addEventListener("click", function () {
+    let textInputValue = Number(textInput.value);
 
-
-rollsButton.addEventListener("click", function(){
-let maxRolls = Number(maxRollsInput.value);
-let count = 0;RollsArray = []
+    let loopCounter = 0;
+    while (textInputValue > loopCounter) {
+        let singleRoll = Math.floor(Math.random() * 6) + 1;
+        loopCounter += 1;
+        totalSum += singleRoll;
+        dieRolls.push(singleRoll);
+     }
+    totalRolls.innerHTML = "TOTAL " + totalSum;
 })
-
-while (count < maxRolls) {
-    rollsArray.push
-}
-//HTML Task: Create an "All Rolls" element on the page. This should be an Ordered List tag. Don't add any List Item tags to it yet. You will add the LI elements later, via JavaScript.
-Big Picture: Eventually, when the user clicks "Show All Rolls", you will loop through each roll in the dieRolls array and, for each, create a List Item tag ( <li>...</li>) containing the result of that single die roll. You will add each LI element to the innerHTML of an "All Rolls" Ordered List you are creating in this step.//
+allRollsButton.addEventListener("click", function () {
+    let loopCounter = 0;
+    while (loopCounter <dieRolls.length) 
+    //while(loopCounter<//
+    {
+        listRolls.innerHTML += "<li>" + dieRolls[loopCounter] + "</li>"
+        loopCounter += 1
+    }
+})
